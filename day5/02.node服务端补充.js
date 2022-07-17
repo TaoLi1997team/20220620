@@ -9,9 +9,9 @@ const server = http.createServer((request, response) => {
 
 
     //得到请求地址
-    console.log(request.url)
+    console.log(request.url);
     //得到请求方式
-    console.log(request.method)
+    console.log(request.method);
 
     /* //获取用户get请求发送过来的数据
     const resulte = request.url.split("?")[1].split("&").reduce((p, c) => {
@@ -26,10 +26,10 @@ const server = http.createServer((request, response) => {
     console.log(re);
 
     //在返回相应之前，需要设置响应头中的数据格式
-    response.setHeader("Content-Type", "text/plain;charset=utf-8")
+    response.setHeader("Content-Type", "text/plain;charset=utf-8");
     //返回相应
     response.end("<h1>湖人总冠军</h1>");
-})
+});
 
 
 const port = 3000;
@@ -39,5 +39,5 @@ server.listen(port, host, (err) => {
         console.log("服务器启动失败：" + err);
         return;
     }
-    console.log(`服务器启动成功:请访问 http://${host}:${port}`)
-})
+    console.log(`服务器启动成功:请访问 http://${host}:${port}`);
+});
