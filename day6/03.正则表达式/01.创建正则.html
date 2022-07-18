@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const reg1 = new RegExp("\d", "gi");
+        const reg2 = /\d/gi;
+        console.log(typeof reg1); //object
+        console.log(typeof reg2); //object
+        console.log(Object.prototype.toString.call(reg1)); //[object RegExp]
+    </script>
+</body>
+
+</html>

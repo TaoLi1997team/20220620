@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <textarea name="user" id="" cols="30" rows="10"></textarea>
+
+    <script>
+        const str = 'g2sk54sdf';
+        const reg1 = /[0-9]/g;
+        console.log(str.replace(reg1, "*")); //g*sk**sdf
+
+        const oTextarea = document.querySelector("textarea");
+        oTextarea.oninput = function () {
+            let textStr = this.value;
+            const reg = /傻逼|杂种|狗杂种|孤儿|TMD|fuck/gi;
+            // let newStr = textStr.replace(reg, "小可爱");
+            let newStr = textStr.replace(reg, (v) => {
+                let str = "";
+                for (var i = 0; i < v.length; i++) {
+                    str += "*";
+                }
+                return str;
+            });
+            this.value = newStr;
+        }
+    </script>
+</body>
+
+</html>

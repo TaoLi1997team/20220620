@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>正则的使用</title>
+</head>
+
+<body>
+    <div id="box"></div>
+    <script>
+        const oBox = document.getElementById("box");
+        const str = '@李滔:hello&1.2a?world\n-3^:TMD FUCK_3/5$YOU*85.com.cn';
+        oBox.innerHTML = str;
+
+        // g 全局匹配
+        // i 忽略大小写
+
+        // [a-z] 所有的小写字母
+        const reg1 = /[a-z]/g;
+        console.log(str.match(reg1));
+
+        // [A-Z] 所有的大写字母
+        const reg2 = /[A-Z]/g;
+        console.log(str.match(reg2));
+
+        // [a-zA-Z] 所有的大小写字母
+        const reg3 = /[a-zA-Z]/g;
+        console.log(str.match(reg3));
+
+        // [xxx] 只匹配xxx
+        const reg4 = /[hello]/g;
+        console.log(str.match(reg4));
+
+        // [0-9] 只匹配数字
+        const reg5 = /[0-9]/g;
+        console.log(str.match(reg5));
+
+        // [0-9a-zA-Z] 只匹配数字和字母
+        const reg6 = /[0-9a-zA-Z]/g;
+        console.log(str.match(reg6));
+
+        // [0-9a] 只匹配所有数字和a
+        const reg7 = /[0-9a]/g;
+        console.log(str.match(reg7));
+
+        // [^a-z] 除了小写字母 全部都匹配
+        const reg8 = /[^a-z]/g;
+        console.log(str.match(reg8));
+
+
+        // 转义字符 **************************************
+        // . 匹配任意一个字符 除了换行符
+        const reg9 = /./g;
+        console.log(str.match(reg9));
+
+        // \d 所有的数字
+        const reg10 = /\d/g;
+        console.log(str.match(reg10));
+
+        // \D 除了数字都可以
+        const reg11 = /\D/g;
+        console.log(str.match(reg11));
+
+        // \s 匹配空白字符
+        const reg12 = /\s/g;
+        console.log(str.match(reg12));
+
+        // \S 匹配非空白字符
+        const reg13 = /\S/g;
+        console.log(str.match(reg13));
+
+        // \w 匹配数字字母下划线
+        const reg14 = /\w/g;
+        console.log(str.match(reg14));
+
+        // \W 匹配非数字字母下划线
+        const reg15 = /\W/g;
+        console.log(str.match(reg15));
+
+        // \b 单词边界
+        var arr = ["box1", "box1 box2", "box1 box3", "box1box2"];
+        var newArr = arr.map(function (item, index) {
+            var reg16 = /\bbox1\b/g;
+            return item.replace(reg16, "box4");
+        });
+        console.log(newArr); //['box4', 'box4 box2', 'box4 box3', 'box1box2']
+
+        // \n 查找换行符（换行符）
+        const reg17 = /\n/g;
+        console.log(str.match(reg17));
+
+
+        // 量词 ******************************
+        // + 匹配至少一个的字符
+        const r1 = /\l+/g;
+        console.log(str.match(r1));
+
+        // ? 零个或一个n的字符
+        const r2 = /\W?/g;
+        console.log(str.match(r2));
+
+        // * 零个或多个n的字符
+        const r3 = /\o*/g;
+        console.log(str.match(r3));
+
+        // n{X} 包含X个n的序列的字符
+        const r4 = /\D{4}/g;
+        console.log(str.match(r4));
+
+        // n{X,Y} 匹配包含X到Y个n的序列的字符（Y可以不写）
+        const r5 = /\s{1,9}/g;
+        const r6 = /\S{1,}/g;
+        console.log(str.match(r5));
+        console.log(str.match(r6));
+
+        // ^n 匹配任何以n为开头的字符
+        const r7 = /^\D/g;
+        console.log(str.match(r7));
+
+        // n$ 匹配任何以n为结尾的字符
+        const r8 = /\D$/g;
+        console.log(str.match(r8));
+
+        // \ 转义符
+        // const r9 = /\^/g
+        const r9 = /\^\D/g;
+        console.log(str.match(r9));
+
+        // | 匹配左边或右边
+        const r10 = /傻逼|FUCK/g;
+        const r01 = /孤儿|TMD/g;
+        let a = str.match(r10);
+        let b = str.match(r01);
+        console.log(a, b);
+        let s1 = a.toString();
+        let s2 = b.toString();
+        let newStr1 = s1.replace(a, "***"); //replace方法:替换(和谐敏感词)
+        let newStr2 = s2.replace(b, "小可爱");
+        console.log(newStr1, newStr2);
+
+        // /[\u4E00-\u9FA5]/ 包含中文字符正则
+        // \u 代表汉字，[\u4E00-\u9FA5] 包含所有汉字
+        const ch = /[\u4E00-\u9FA5]/g;
+        console.log(str.match(ch))
+
+    </script>
+</body>
+
+</html>
