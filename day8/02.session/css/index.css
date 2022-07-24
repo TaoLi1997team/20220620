@@ -1,0 +1,27 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+a {
+  font-size: 36px;
+  color: chartreuse;
+}
+label,
+button {
+  font-size: 32px;
+  color: aqua;
+  display: flex;
+  margin: 10px 0px;
+}
+label span,
+button span {
+  display: inline-block;
+  width: 240px;
+  /* text-align: justify;
+    text-align-last: justify; */
+}
+label input,
+button input {
+  width: 260px;
+  height: 30px;
+}

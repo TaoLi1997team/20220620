@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录</title>
+    <!-- <link rel="stylesheet" href="../css/index.css"> -->
+    <style>
+        label,
+        button {
+            font-size: 32px;
+            color: aqua;
+            display: flex;
+            margin: 10px 0px;
+        }
+
+        span{
+            display: inline-block;
+            width: 240px;
+        }
+
+        input{
+            width: 260px;
+            height: 30px;
+        }
+    </style>
+</head>
+<body>
+    <form action="http://127.0.0.1:3000/login" method="POST">
+        <div>
+            <label>
+                <span>请输入用户名:</span>
+                <input type="text" name="user">
+            </label>
+        </div>
+        <div>
+            <label>
+                <span>请输入密码:</span>
+                <input type="text" name="pass">
+            </label>
+        </div>
+        <button>登录</button>
+    </form>
+</body>
+</html>

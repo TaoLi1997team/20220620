@@ -1,0 +1,61 @@
+<mxfile host="65bd71144e">
+    <diagram id="eewAelSP6XKWpJiNrW83" name="第 1 页">
+        <mxGraphModel dx="764" dy="786" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="7" style="edgeStyle=none;html=1;exitX=1;exitY=0.116;exitDx=0;exitDy=0;exitPerimeter=0;entryX=-0.005;entryY=0.178;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="2" target="3">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="540" y="190" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="12" style="edgeStyle=none;html=1;entryX=-0.01;entryY=0.6;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="3">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="240" y="370" as="sourcePoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="2" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="60" y="100" width="170" height="500" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" style="edgeStyle=none;html=1;exitX=0.05;exitY=0.3;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="3">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="240" y="290" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="15" style="edgeStyle=none;html=1;exitX=0;exitY=0.75;exitDx=0;exitDy=0;entryX=1.024;entryY=0.844;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="3" target="2">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="550" y="100" width="200" height="500" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="客户端" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="120" y="80" width="50" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="服务端" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="615" y="80" width="50" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="1、客户端向服务端发送请求，请求登录，&lt;br&gt;可能在报文体或url中携带登录信息" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="280" y="130" width="240" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="2、服务端接收到响应，创建一个&lt;br&gt;session对象，然后创建一个&lt;br&gt;当前用户的信息和sessionID&lt;br&gt;组成一个key-value值 ，&lt;br&gt;保存在session对象中" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="555" y="180" width="190" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="3、返回响应，cookie中携带了sessionid" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="270" y="230" width="230" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="4、接收到sessionid，&lt;br&gt;并保存在cookie中" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="90" y="300" width="130" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="13" value="5、第二次发送请求，会自动携带sessionid，&lt;br&gt;因为爱cookie中保存" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="270" y="350" width="250" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" value="6、服务端通过解析，获取到cookie&lt;br&gt;中的sessionid，去session对象中&lt;br&gt;判断当前sessionid是否存在" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="550" y="390" width="200" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="16" value="7、如果服务端验证成功，会直接响应响应的请求，&lt;br&gt;否则需要再次登录" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="240" y="460" width="290" height="30" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
