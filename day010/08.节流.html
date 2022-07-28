@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8.节流</title>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box"></div>
+    <script>
+        const oBox = document.querySelector("#box");
+        function move(e) {
+            console.log(Date.now());
+            console.log(this);
+            console.log(e);
+        };
+        const result = throttle(move, 200);
+        oBox.onmousemove = result;
+        function throttle(fn, time) {
+            let lastTime = 0;
+            return function () {
+                let nowTime = Date.now();
+                if (nowTime - lastTime < time) { return; }
+                fn.call(this,arguments[0]);
+                lastTime = nowTime;
+            };
+        }
+    </script>
+</body>
+
+</html>

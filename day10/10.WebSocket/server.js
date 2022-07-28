@@ -29,5 +29,5 @@ server.listen(3000, (err) => {
         console.log("服务器启动错误" + err);
         return;
     }
-    console.log("服务器启动成功 http://192.168.20.21:3000");
+    console.log("服务器启动成功 http://192.168.137.1:3000");
 })

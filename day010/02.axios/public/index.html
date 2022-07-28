@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <button id="btn">发送</button>
+    <script>
+        const oBtn = document.getElementById("btn");
+        oBtn.onclick = function () {
+            /* axios.get('/user?ID=12345')
+                .then(function (response) { console.log(response); })
+                .catch(function (error) { console.log(error); }); */
+
+            /* axios.get('/user', { params: { ID: 12345 } })
+                .then(function (response) { console.log(response); })
+                .catch(function (error) { console.log(error); }); */
+
+            axios.post('/user', { firstName: 'Fred', lastName: 'Flintstone' })
+                .then(function (response) { console.log(response); })
+                .catch(function (error) { console.log(error); });
+
+            /* axios({
+                method: 'post',
+                url: '/user',
+                data: {
+                    firstName: '111',
+                    lastName: '222'
+                }
+            }).then((data) => { console.log(data); }); */
+
+            /* axios({
+                method: 'get',
+                url: '/user',
+                params: {
+                    firstName: '333',
+                    lastName: '444'
+                }
+            }).then((data) => { console.log(data); }); */
+        }
+    </script>
+</body>
+
+</html>

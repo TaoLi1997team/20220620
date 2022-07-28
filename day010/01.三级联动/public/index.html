@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8">
+  <title>三级联动</title>
+  <style>
+    input{
+      font-size: 20px;
+      color: chartreuse;
+    }
+    textarea{
+      font-size: 20px;
+      color: blue;
+    }
+  </style>
+</head>
+
+<body>
+  <select id="province">
+    <option>请选择省份</option>
+  </select> 省
+  <select id="city">
+    <option>请选择市</option>
+  </select> 市
+  <select id="county">
+    <option>请选择区(县)</option>
+  </select> 区(县)
+  <select id="town">
+    <option>请选择镇</option>
+  </select> 镇
+  <select id="village">
+    <option>请选择村</option>
+  </select> 村
+  <p>手机号码: <input type="text"></p>
+  <p>邮箱地址: <input type="text"></p>
+  <p>详细地址: <textarea rows="1" cols="50"></textarea></p>
+
+  <script type="text/javascript" src="./js/jquery-1.12.4.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      const xhr = new XMLHttpRequest();
+      xhr.open("GET", "/province", true);
+      xhr.send();
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && (xhr.status > 199 && xhr.status < 300)) {
+          const provinceData = JSON.parse(xhr.responseText);
+          console.log(provinceData);
+          if (provinceData.status === 0) {
+            $("#province").append(provinceData.data.reduce((p, c) => {
+              return p + `<option value="${c.province}">${c.name}</option>`;
+            }, ''));
+          }
+        }
+      };
+      $("#province").change(function () {
+        const province = $(this).val();
+        console.log(province);
+        $.get("/city", { province }, (mes) => {
+          if (mes.status === 0) {
+            console.log(mes);
+            $("#city").append(mes.data.reduce((p, c) => {
+              return p + `<option value="${c.city}">${c.name}</option>`;
+            }, ''));
+          }
+        });
+      });
+      $("#city").change(function () {
+        const province = $("#province").val();
+        const city = $(this).val();
+        $.get("/county", { province, city }, (mes) => {
+          if (mes.status === 0) {
+            console.log(mes);
+            $("#county").append(mes.data.reduce((p, c) => {
+              return p + `<option value="${c.county}">${c.name}</option>`;
+            }, ''));
+          }
+        });
+      });
+    })
+  </script>
+</body>
+
+</html>
