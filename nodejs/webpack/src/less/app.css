@@ -8,8 +8,11 @@
   background-size: contain;
 }
 .img1 {
-  background-image: url('../images/react.jpg');
+  background-image: url("../images/react.jpg");
 }
 .img2 {
-  background-image: url('../images/vue.png');
+  background-image: url("../images/vue.png");
+}
+.img3 {
+  background-image: url("../images/再见.png");
 }
