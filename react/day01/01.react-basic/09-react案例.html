@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,9 +8,11 @@
     <style>
         .box {
             border: 1px solid hotpink;
+            background-color: aqua;
         }
     </style>
 </head>
+
 <body>
     <div id="root"></div>
     <script src="js/react.development.js"></script>
@@ -28,28 +31,23 @@
             { id: 1, name: 'jack', content: 'rose, you jump i jump' },
             { id: 2, name: 'rose', content: 'jack, you see you, one day day' },
             { id: 3, name: 'tom', content: 'jack,。。。。。' }
-        ]
+        ];
 
         // 调用map方法,得到一个存储了一堆li标签的数组
-        const lists = list.map(item=>{
-            return <li className="box" style={{backgroundColor: 'pink'}} key={item.id}><a onClick={(e)=>{
-                e.preventDefault()
+        const lists = list.map(item => {
+            return <li className="box" style={{ backgroundColor: 'pink' }} key={item.id}><a onClick={(e) => {
+                e.preventDefault();
                 // console.log(e.target)
-                console.log(e.target.innerText)
-            }}><h3 style={{backgroundColor: 'red'}}>{item.name}</h3><p style={{backgroundColor: 'green'}}>{item.content}</p></a></li>
-        })
+                console.log(e.target.innerText);
+            }}><h3 style={{ backgroundColor: 'red' }}>{item.name}</h3><p style={{ backgroundColor: 'green' }}>{item.content}</p></a></li>;
+        });
 
         //1. 完成列表渲染
-        let ul = <ul>
-           {lists}
-        </ul>
+        let ul = <ul>{lists}</ul>;
 
-        let div = <div>{list.length ? ul : <h1>暂无数据!</h1>}</div>
-
-
-
+        let div = <div>{list.length ? ul : <h1>暂无数据!</h1>}</div>;
         ReactDOM.render(div, document.getElementById('root'))
-
     </script>
 </body>
+
 </html>
